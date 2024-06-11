@@ -13,6 +13,8 @@
 //
 #include <memory>
 
+#include <stdarg.h>
+
 #define CYRILLIC // enable internal cyrillics (CY, Cs, Ce, Ct)
 
 #define cntrl(c) ((c) & 0x1f)

@@ -1,14 +1,12 @@
 extern "C" {
+#if defined(__linux__)      // Temporary workaround
+#define TERMIOS
 #ifdef TERMIOS
 #include <sys/termios.h>
-#define TERMIO
-#define termio termios
-#ifdef sun
-#define TCGETA TCGETS
-#define TCSETA TCSETS
-#define TCSETAW TCSETSW
-#else
 #include <sys/ioctl.h>
+#define TERMIO
+#if !defined(__linux__)
+#define termio termios
 #define TCGETA TIOCGETA
 #define TCSETA TIOCSETA
 #define TCSETAW TIOCSETAW
@@ -30,6 +28,7 @@ extern "C" {
 #include <termio.h>
 #else
 #include <sgtty.h>
+#endif
 #endif
 #endif
 };

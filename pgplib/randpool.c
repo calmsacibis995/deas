@@ -93,7 +93,7 @@ void randPoolStir(void)
 
     /* First CFB pass */
     for (i = 0; i < RANDPOOLWORDS; i += 4) {
-        MD5Transform(iv, randPoolKey);
+        MD5Transform(iv, (const uint8_t *)randPoolKey);
         iv[0] = randPool[i] ^= iv[0];
         iv[1] = randPool[i + 1] ^= iv[1];
         iv[2] = randPool[i + 2] ^= iv[2];
@@ -105,7 +105,7 @@ void randPoolStir(void)
 
     /* Second CFB pass */
     for (i = 0; i < RANDPOOLWORDS; i += 4) {
-        MD5Transform(iv, randPoolKey);
+        MD5Transform(iv, (const uint8_t *)randPoolKey);
         iv[0] = randPool[i] ^= iv[0];
         iv[1] = randPool[i + 1] ^= iv[1];
         iv[2] = randPool[i + 2] ^= iv[2];

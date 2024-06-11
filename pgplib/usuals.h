@@ -3,16 +3,14 @@
 #ifndef USUALS /* Assures no redefinitions of usual types...*/
 #define USUALS
 
+#include <stdint.h>
+
 typedef unsigned char boolean; /* values are TRUE or FALSE */
 typedef unsigned char byte;    /* values are 0-255 */
 typedef byte *byteptr;         /* pointer to byte */
 typedef char *string;          /* pointer to ASCII character string */
 typedef unsigned short word16; /* values are 0-65535 */
-#ifdef __alpha
-typedef unsigned int word32; /* values are 0-4294967295 */
-#else
-typedef unsigned long word32; /* values are 0-4294967295 */
-#endif
+typedef uint32_t word32;      /* values are 0-4294967295 */
 
 #ifndef TRUE
 #define FALSE 0
