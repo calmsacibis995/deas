@@ -170,7 +170,7 @@ void MD5Final(unsigned char digest[16], struct MD5Context *ctx)
  * reflect the addition of 16 longwords of new data.  MD5Update blocks
  * the data and converts bytes into longwords for this routine.
  */
-void MD5Transform(uint32 buf[4], uint32 const in[16])
+void MD5Transform(uint32 buf[4], uint32 const in[64])
 {
     register uint32 a, b, c, d;
 
